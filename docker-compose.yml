@@ -1,15 +1,16 @@
+# Harus kita buat dulu
 version: "4"
 services:
   mysql-db:
-    container_name: inventory-service-mysql-db
+    container_name: e-commerce-mysql
     image: mysql:latest
     restart: always
     #    set password mysql
     environment:
       MYSQL_ROOT_PASSWORD: mysql
-    #      The port must be different, because port 3307 is already used for order-service
+    #      The port must be different, because port 3309 is already used for order-service
     ports:
-      - "3308:3306"
+      - "3309:3306"
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
       - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
